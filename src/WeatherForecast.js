@@ -4,7 +4,6 @@ class WeatherForecast extends React.Component {
     constructor(props) {
         super(props);
         this.state = { forecasts: [], loading: true };
-        console.log(this.forecasts);
     }
 
     componentDidMount() {
@@ -17,7 +16,7 @@ class WeatherForecast extends React.Component {
                 <table>
                 <thead>
                 <tr>
-                    <th>Date</th>
+                    <th>Day</th>
                     <th>Temp. (C)</th>
                     <th>Temp. (F)</th>
                     <th>Summary</th>
