@@ -13,7 +13,8 @@ class WeatherForecast extends React.Component {
 
     static renderForecastsTable(forecasts) {
         return (
-            <table>
+            <center>
+                <table>
                 <thead>
                 <tr>
                     <th>Date</th>
@@ -33,6 +34,7 @@ class WeatherForecast extends React.Component {
                 )}
                 </tbody>
             </table>
+            </center>
         );
     }
 
@@ -42,6 +44,7 @@ class WeatherForecast extends React.Component {
         return (
             <div>
                 {contents}
+                <button onClick={() => this.populateWeatherData()}>Reload</button>
             </div>
         );
     }
