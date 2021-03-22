@@ -43,7 +43,7 @@ class WeatherForecast extends React.Component {
         return (
             <div>
                 {contents}
-                <button onClick={() => this.populateWeatherData()}>Reload</button>
+                <button onClick={() => this.populateWeatherData()}>Reload!</button>
             </div>
         );
     }
