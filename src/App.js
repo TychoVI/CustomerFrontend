@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Collapse } from 'react-collapse'
 import './App.css'
 
 class App extends Component {
