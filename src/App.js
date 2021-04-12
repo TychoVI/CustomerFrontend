@@ -1,11 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
-import WeatherForecast from './WeatherForecast';
+import Menu from './components/Menu';
 
 function App() {
   return (
     <div className="App">
-      <WeatherForecast></WeatherForecast>
+      <Menu></Menu>
     </div>
   );
 }
