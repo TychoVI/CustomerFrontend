@@ -44,7 +44,7 @@ class Menu extends React.Component {
     }
 
     async loadMenuItems() {
-        const response = await fetch("https://localhost:5001/MenuItems")
+        const response = await fetch("https://localhost:5001/MenuItems");
         const data = await response.json();
         this.setState({ menuItems: data, loading: false});
     }
