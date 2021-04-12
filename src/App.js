@@ -1,13 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
-import WeatherForecast from './WeatherForecast';
+import React, { Component } from 'react'
+import './App.css'
 
-function App() {
-  return (
-    <div className="App">
-      <WeatherForecast></WeatherForecast>
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <div className="app">
+		  <form>
+			  
+		  </form>
+      </div>
+    )
+  }
 }
 
-export default App;
+export default App
