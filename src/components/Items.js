@@ -12,7 +12,7 @@ const Items = (props) => {
               decrement={props.remove}
               increment={props.adding}
               head={item.head}
-              cnt={item.quantity}
+              quantity={item.quantity}
               price={item.price}
               url={item.url}
               content={item.content}

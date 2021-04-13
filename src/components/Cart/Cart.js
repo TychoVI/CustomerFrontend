@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import './Cart.css'
-import Items from '../../Components/Cart/Items/Items'
+import Items from '../components/Item/Item'
 
 class Cart extends Component {
   state = {
@@ -40,8 +40,8 @@ class Cart extends Component {
           />
         </section>
         <section className="cartTotal">
-          <p>You Total : {price} €</p>
-          <button url="/order" content="Order Now">
+          <p>Total Price : {price} €</p>
+          <button url="/Checkout" content="Order Now">
             Place Order
           </button>
         </section>
