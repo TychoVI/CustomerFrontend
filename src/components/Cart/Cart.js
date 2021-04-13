@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import './Cart.css'
-import Items from '../components/Item/Item'
+import Items from './cart_items/Item'
+import { Button } from 'reactstrap'
 
 class Cart extends Component {
   state = {
@@ -14,22 +15,20 @@ class Cart extends Component {
   }
   render() {
     let price = 0
-    let count
+    let quantity
     if (this.props.data.length === undefined) {
-      count = 0
+      quantity = 0
     } else {
-      count = this.props.data.length
+      quantity = this.props.data.length
     }
     this.props.data.map((item) => (price += item.price * item.quantity))
     return (
       <div>
         <section className="Cart">
-          <label count={count}></label>
+          <label quantity={quantity}></label>
           <p className="CartHead">Cart</p>
           <div>
             <NavLink to="/">Home</NavLink>
-            <NavLink to="/menu">Menu</NavLink>
-            <NavLink to="/order">Cart</NavLink>
           </div>
         </section>
         <section>
@@ -41,9 +40,9 @@ class Cart extends Component {
         </section>
         <section className="cartTotal">
           <p>Total Price : {price} €</p>
-          <button url="/Checkout" content="Order Now">
+          <Button outline color="success" url="/Checkout" content="Order Now">
             Place Order
-          </button>
+          </Button>
         </section>
       </div>
     )

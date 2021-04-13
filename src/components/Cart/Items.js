@@ -1,6 +1,7 @@
 import React from 'react'
-import Item from './Item/Item'
+import Item from './cart_items/Item'
 import { Container } from 'reactstrap'
+
 const Items = (props) => {
   return (
     <div className="Items">
@@ -12,7 +13,7 @@ const Items = (props) => {
               decrement={props.remove}
               increment={props.adding}
               head={item.head}
-              quantity={item.quantity}
+              cnt={item.counter}
               price={item.price}
               url={item.url}
               content={item.content}

@@ -10,7 +10,10 @@ const Item = (props) => {
       <Row>
         <Col xs="5" xl="5">
           <div className="image-Box">
-            <img src={props.url} alt="itemPhoto" />
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/RedDot_Burger.jpg/800px-RedDot_Burger.jpg"
+              alt="itemPhoto"
+            />
           </div>
         </Col>
         <Col xs="7" xl="7">
@@ -19,13 +22,13 @@ const Item = (props) => {
             <p className="cartItemContentContent">{props.content}</p>
             <p className="cartItemContentPrice">
               {props.price}
-              <span className="cartAmount">{props.count}</span>{' '}
+              <span className="cartAmount">{props.quantity}</span>{' '}
             </p>
             <Button
               onClick={() =>
-                props.increment({
+                props.Increment({
                   head: props.head,
-                  counter: props.count,
+                  quantity: props.quantity,
                   url: props.url,
                   content: props.content,
                   price: props.price,
@@ -38,7 +41,7 @@ const Item = (props) => {
               onClick={() =>
                 props.decrement({
                   head: props.head,
-                  counter: props.count,
+                  quantity: props.quantity,
                   url: props.url,
                   content: props.content,
                   price: props.price,
