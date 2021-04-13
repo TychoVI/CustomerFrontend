@@ -2,12 +2,11 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
-import Counter from './views/Counter'
+import { HashRouter } from 'react-router-dom'
 
 ReactDOM.render(
-  <React.StrictMode>
+  <HashRouter>
     <App />
-    <Counter />
-  </React.StrictMode>,
+  </HashRouter>,
   document.getElementById('root'),
 )
