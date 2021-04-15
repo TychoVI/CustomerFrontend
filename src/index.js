@@ -1,13 +1,12 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
 import './index.css'
-import App from './App'
-import Counter from './views/Counter'
+import cartReducer from './components/reducers/cartReducer';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-    <Counter />
-  </React.StrictMode>,
-  document.getElementById('root'),
-)
+const store = createStore(cartReducer);
+
+ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
+
