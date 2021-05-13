@@ -38,7 +38,6 @@ const initState = {
 }
 const cartReducer = (state = initState, action) => {
   //Home Component
-
   if (action.type === ADD_TO_CART) {
     let addedItem = state.items.find((item) => item.id === action.id)
 
@@ -52,7 +51,6 @@ const cartReducer = (state = initState, action) => {
       }
     } else {
       addedItem.quantity = 1
-
       //calculating the total
       let newTotal = state.total + addedItem.price
 

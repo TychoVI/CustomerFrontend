@@ -13,7 +13,7 @@ class Checkout extends Component {
         <div className="checkout">
           <button className="#01579b light-blue darken-3 waves-effect waves-green waves-light btn">
             Checkout
-            <i class="material-icons right">check_circle</i>
+            <i className="material-icons right">check_circle</i>
           </button>
         </div>
       </div>
