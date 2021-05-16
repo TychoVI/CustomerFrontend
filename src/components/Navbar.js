@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import CartIcon from './Material-ui/ShoppingCartIcon'
+
 const Navbar = () => {
   return (
     <nav className="#01579b light-blue darken-4 nav-wrapper">
@@ -10,7 +12,7 @@ const Navbar = () => {
         <ul className="right">
           <li>
             <Link to="/cart">
-              <i className="material-icons">shopping_cart</i>
+              <CartIcon />
             </Link>
           </li>
         </ul>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import MenuItem from './Pages/MenuItemController'
 import { addToCart } from './actions/cartActions'
 
 class Home extends Component {
@@ -8,36 +9,11 @@ class Home extends Component {
   }
 
   render() {
-    let itemList = this.props.items.map((item) => {
-      return (
-        <div className="card" key={item.id}>
-          <div className="card-image">
-            <img src={item.img} alt="img" />
-            <span className="card-title">{item.title}</span>
-            <span
-              to="/"
-              className="#ffa000 amber darken-2 btn-floating halfway-fab waves-effect waves-light red"
-              onClick={() => {
-                this.handleClick(item.id)
-              }}
-            >
-              <i className="material-icons">add</i>
-            </span>
-          </div>
-
-          <div className="card-content">
-            <p>{item.desc}</p>
-            <p>
-              <b>Price: {item.price} €</b>
-            </p>
-          </div>
-        </div>
-      )
-    })
-
     return (
       <div className="container">
-        <div className="col s12 m2">{itemList}</div>
+        <div className="col s12 m2">
+          <MenuItem />
+        </div>
       </div>
     )
   }
