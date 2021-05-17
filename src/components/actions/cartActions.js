@@ -1,35 +1,37 @@
 import {
   ADD_TO_CART,
-  REMOVE_ITEM,
+  REMOVE_FROM_CART,
   SUB_QUANTITY,
   ADD_QUANTITY,
+  EMPTY_CART,
 } from './action-types/cart-actions'
 
-//add  to cart action
 export const addToCart = (id) => {
   return {
     type: ADD_TO_CART,
     id,
   }
 }
-//remove item action
-export const removeItem = (id) => {
+export const removeFromCart = (id) => {
   return {
-    type: REMOVE_ITEM,
+    type: REMOVE_FROM_CART,
     id,
   }
 }
-//subtract quantity action
 export const subtractQuantity = (id) => {
   return {
     type: SUB_QUANTITY,
     id,
   }
 }
-//add quantity action
 export const addQuantity = (id) => {
   return {
     type: ADD_QUANTITY,
     id,
+  }
+}
+export const emptyCart = () => {
+  return {
+    type: EMPTY_CART,
   }
 }
