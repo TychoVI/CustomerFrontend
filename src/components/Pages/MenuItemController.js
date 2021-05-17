@@ -19,7 +19,7 @@ function MenuItem() {
   return (
     <div>
       {items.map((item) => (
-        <Items data={item} />
+        <Items data={item} key={item.id} />
       ))}
     </div>
   )

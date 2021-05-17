@@ -49,7 +49,7 @@ export default function RecipeReviewCard(props) {
   return (
     <Card className={classes.root} key={props.data.id}>
       <CardHeader title={props.data.name} />
-      <hr />
+
       <CardMedia className={classes.media} image={props.data.image} />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
@@ -57,7 +57,7 @@ export default function RecipeReviewCard(props) {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <Typography variant="h5" component="h5" color="textSecondary">
+        <Typography variant="h5" component="h5" color="secondary">
           <span>{props.data.price}€</span>
         </Typography>
         <IconButton
@@ -77,7 +77,11 @@ export default function RecipeReviewCard(props) {
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
           <Typography paragraph>Ingredients:</Typography>
-          <Typography paragraph>{props.data.ingredients.length}</Typography>
+          <ul>
+            {props.data.ingredients.map((ingredient) => (
+              <li>{ingredient.name}</li>
+            ))}
+          </ul>
         </CardContent>
       </Collapse>
     </Card>

@@ -12,7 +12,7 @@ class Home extends Component {
     return (
       <div className="container">
         <div className="col s12 m2">
-          <MenuItem />
+          <MenuItem onClick={this.handleClick} />
         </div>
       </div>
     )
