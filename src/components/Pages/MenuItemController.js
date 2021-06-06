@@ -7,7 +7,7 @@ function MenuItem() {
 
   useEffect(() => {
     axios
-      .get('https://localhost:44311/MenuItem')
+      .get(window.globalConfig.API_URL + '/Menu/MenuItems')
       .then((res) => {
         console.log(res)
         setItems(res.data)
