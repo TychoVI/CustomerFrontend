@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { ItemContext } from '../../App'
+import axios from "axios";
 
 function Checkout() {
 
@@ -15,6 +16,33 @@ function Checkout() {
     return totalPrice;
   }
 
+  function SubmitOrder(){
+      var order = {
+          price: TotalPrice,
+          status: "pending",
+          "items": []
+      }
+
+      items.map((item) => (
+          console.log(item)
+      ))
+
+      items.map((item) => (
+          order.items.push({
+              "menuItem": item.data.id,
+              "amount": item.amount
+          })
+      ))
+
+      axios
+          .post(window.globalConfig.API_URL + '/Order/Order', order)
+          .then((res) => {
+              console.log("Make something nice of it nikos :)")
+          })
+          .catch((err) => {
+              console.log(err)
+          })
+  }
   
   return (
     <div className="container">
@@ -24,7 +52,7 @@ function Checkout() {
            </li>
          </div>
          <div className="checkout">
-           <button className="#01579b light-blue darken-3 waves-effect waves-green waves-light btn">
+           <button onClick={SubmitOrder} className="#01579b light-blue darken-3 waves-effect waves-green waves-light btn">
              Checkout
              <i className="material-icons right">check_circle</i>
            </button>
