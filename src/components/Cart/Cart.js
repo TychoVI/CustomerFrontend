@@ -19,7 +19,7 @@ function Cart() {
             </ul>
           </div>
           <div>
-           {<Checkout />}
+           <Checkout />
           </div>
        </div>
   )

@@ -10,7 +10,9 @@ class Home extends Component {
     return (
       <div className="container">
         <div className="col s12 m2">
-          <MenuItem />
+          <div className="row">
+            <MenuItem />
+          </div>
         </div>
       </div>
     )
