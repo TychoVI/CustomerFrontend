@@ -12,6 +12,8 @@ import Typography from '@material-ui/core/Typography'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import AddIcon from '@material-ui/icons/Add'
 import Fab from '@material-ui/core/Fab'
+import { ItemContext } from '../../App'
+import { useContext } from 'react'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -38,12 +40,20 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export default function RecipeReviewCard(props) {
+export default function Products(props) {
+
   const classes = useStyles()
   const [expanded, setExpanded] = React.useState(false)
+  const [items, setItems] = useContext(ItemContext)
 
   const handleExpandClick = () => {
     setExpanded(!expanded)
+  }
+
+  const handleAddClick = () => 
+  {
+    setItems( prevItem => [...prevItem, props])
+    console.log(items)
   }
 
   return (
@@ -70,7 +80,7 @@ export default function RecipeReviewCard(props) {
         >
           <ExpandMoreIcon />
         </IconButton>
-        <Fab size="small" color="primary" aria-label="add">
+        <Fab size="small" color="primary" aria-label="add" onClick={handleAddClick}>
           <AddIcon />
         </Fab>
       </CardActions>
