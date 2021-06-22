@@ -4,7 +4,7 @@ import axios from 'axios'
 import Swal from 'sweetalert2'
 
 function Checkout() {
-  const [items, setItems] = useContext(ItemContext)
+  const [items] = useContext(ItemContext)
 
   function TotalPrice() {
     let totalPrice = 0
@@ -32,7 +32,6 @@ function Checkout() {
     axios
       .post(window.globalConfig.API_URL + '/Order/Order', order)
       .then((res) => {
-        // console.log('Make something nice of it nikos :)')
         Swal.fire('Success!', 'Your order has been placed!', 'success')
         setTimeout(function () {
           window.location.reload()

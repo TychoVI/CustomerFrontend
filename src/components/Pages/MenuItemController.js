@@ -18,9 +18,7 @@ function MenuItem() {
   }, [])
   return (
     <div>
-      {items.map((item) => (
-        <Items data={item} key={item.id} />
-      ))}
+      {React.Children.toArray(items.map((item) => <Items data={item} />))}
     </div>
   )
 }
