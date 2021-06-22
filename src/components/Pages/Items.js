@@ -41,23 +41,22 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 export default function Products(props) {
-
   const classes = useStyles()
   const [expanded, setExpanded] = React.useState(false)
+
+  // eslint-disable-next-line
   const [items, setItems] = useContext(ItemContext)
 
   const handleExpandClick = () => {
     setExpanded(!expanded)
   }
 
-  const handleAddClick = () => 
-  {
-    setItems( prevItem => [...prevItem, props])
-    console.log(items)
+  const handleAddClick = () => {
+    setItems((prevItem) => [...prevItem, props])
   }
 
   return (
-    <Card className={classes.root} key={props.data.id}>
+    <Card className={classes.root}>
       <CardHeader title={props.data.name} />
 
       <CardMedia className={classes.media} image={props.data.image} />
@@ -80,7 +79,12 @@ export default function Products(props) {
         >
           <ExpandMoreIcon />
         </IconButton>
-        <Fab size="small" color="primary" aria-label="add" onClick={handleAddClick}>
+        <Fab
+          size="small"
+          color="primary"
+          aria-label="add"
+          onClick={handleAddClick}
+        >
           <AddIcon />
         </Fab>
       </CardActions>
@@ -88,9 +92,11 @@ export default function Products(props) {
         <CardContent>
           <Typography paragraph>Ingredients:</Typography>
           <ul>
-            {props.data.ingredients.map((ingredient) => (
-              <li>{ingredient.name}</li>
-            ))}
+            {React.Children.toArray(
+              props.data.ingredients.map((ingredient) => (
+                <li>{ingredient.name}</li>
+              )),
+            )}
           </ul>
         </CardContent>
       </Collapse>

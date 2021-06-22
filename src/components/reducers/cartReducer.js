@@ -7,54 +7,52 @@ import {
 } from '../actions/action-types/cart-actions'
 
 const initialState = {
-  products: [],
+  items: [],
 }
 const cartReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TO_CART:
       return {
         ...state,
-        products: state.products.map((product) =>
-          product.id === action.id ? { ...product, selected: true } : product,
+        items: state.items.map((item) =>
+          item.id === action.id ? { ...item, selected: true } : item,
         ),
       }
     case REMOVE_FROM_CART:
       return {
         ...state,
-        products: state.products.map((product) =>
-          product.id === action.id
-            ? { ...product, selected: false, quantity: 1 }
-            : product,
+        items: state.items.map((item) =>
+          item.id === action.id
+            ? { ...item, selected: false, quantity: 1 }
+            : item,
         ),
       }
     case ADD_QUANTITY:
       return {
         ...state,
-        products: state.products.map((product) =>
-          product.id === action.id
-            ? { ...product, quantity: product.quantity + 1 }
-            : product,
+        items: state.items.map((item) =>
+          item.id === action.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item,
         ),
       }
     case SUB_QUANTITY:
       return {
         ...state,
-        products: state.products.map((product) =>
-          product.id === action.id
+        items: state.items.map((item) =>
+          item.id === action.id
             ? {
-                ...product,
-                quantity: product.quantity !== 1 ? product.quantity - 1 : 1,
+                ...item,
+                quantity: item.quantity !== 1 ? item.quantity - 1 : 1,
               }
-            : product,
+            : item,
         ),
       }
     case EMPTY_CART:
       return {
         ...state,
-        products: state.products.map((product) =>
-          product.selected
-            ? { ...product, selected: false, quantity: 1 }
-            : product,
+        items: state.items.map((item) =>
+          item.selected ? { ...item, selected: false, quantity: 1 } : item,
         ),
       }
     default:

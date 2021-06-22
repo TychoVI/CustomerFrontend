@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Checkbox from '@material-ui/core/Checkbox'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
@@ -13,6 +13,7 @@ import IconButton from '@material-ui/core/IconButton'
 import Typography from '@material-ui/core/Typography'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import Icon from '@material-ui/core/Icon'
+import { ItemContext } from '../../App'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -42,11 +43,30 @@ const useStyles = makeStyles((theme) => ({
 function CartItem(props) {
   const classes = useStyles()
   const [expanded, setExpanded] = React.useState(false)
+  const [state, setState] = React.useState({ checked: true })
+  // eslint-disable-next-line no-unused-vars
+  const [items, setItems] = useContext(ItemContext)
+
+  const handleChange = (event) => {
+    setState({
+      ...state,
+      [event.target.name]: event.target.checked,
+    })
+  }
   const handleExpandClick = () => {
     setExpanded(!expanded)
   }
+
+  const handleAddClick = () => {
+    setItems((prevItem) => [...prevItem, props.data])
+  }
+
+  const handleRemoveClick = () => {
+    setItems((prevItem) => prevItem.slice(0, -1))
+  }
+
   return (
-    <Card className={classes.root} key={props.data.data.id}>
+    <Card className={classes.root}>
       <CardHeader title={props.data.data.name} />
       <CardMedia className={classes.media} image={props.data.data.image} />
       <CardActions disableSpacing>
@@ -65,28 +85,33 @@ function CartItem(props) {
         <CardContent>
           <Typography paragraph>Modify your item</Typography>
           <div>
-            {props.data.data.ingredients.map((ingredient, index) =>
-              index === 0 ? (
-                <FormControlLabel
-                  disabled
-                  control={<Checkbox checked name="checked" />}
-                  label={ingredient.name}
-                />
-              ) : (
-                <FormControlLabel
-                  control={<Checkbox name="checked" />}
-                  label={ingredient.name}
-                />
+            {React.Children.toArray(
+              props.data.data.ingredients.map((ingredient) =>
+                !ingredient.optional ? (
+                  <FormControlLabel
+                    disabled
+                    control={<Checkbox checked name="checked" />}
+                    label={ingredient.name}
+                  />
+                ) : (
+                  <FormControlLabel
+                    onChange={handleChange}
+                    control={
+                      <Checkbox checked={state.checked} name="checked" />
+                    }
+                    label={ingredient.name}
+                  />
+                ),
               ),
             )}
           </div>
         </CardContent>
       </Collapse>
-      <p>1</p>
-      <Icon fontSize="large" color="primary">
+      <p>{props.quantity}</p>
+      <Icon fontSize="large" color="primary" onClick={handleAddClick}>
         add_circle
       </Icon>
-      <Icon fontSize="large" color="primary">
+      <Icon fontSize="large" color="primary" onClick={handleRemoveClick}>
         remove_circle
       </Icon>
     </Card>

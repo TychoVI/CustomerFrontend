@@ -15,16 +15,12 @@ const StyledBadge = withStyles((theme) => ({
 }))(Badge)
 
 export default function CustomizedBadges() {
-  const [items, setItems] = useContext(ItemContext)
-  //const total = useContext(ItemContext)
+  const [items] = useContext(ItemContext)
 
-  function CountCart()
-  {
-    let total = 0;
-    items.map((item) => (
-      total++
-    ))
-    return total;
+  function CountCart() {
+    let total = 0
+    items.map((item) => total++)
+    return total
   }
   return (
     <IconButton aria-label="cart">
