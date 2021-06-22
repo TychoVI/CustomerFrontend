@@ -19,6 +19,7 @@ function Checkout() {
       price: TotalPrice,
       status: 'pending',
       items: [],
+      sessionId: id
     }
 
     items.map((item) => console.log(item))
@@ -31,7 +32,7 @@ function Checkout() {
     )
 
     axios
-      .post(window.globalConfig.API_URL + `/Order/Order`, order,{ sessionId: id})
+      .post(window.globalConfig.API_URL + `/Order/Order`)
       .then((res) => {
         // console.log('Make something nice of it nikos :)')
         Swal.fire('Success!', 'Your order has been placed!', 'success')

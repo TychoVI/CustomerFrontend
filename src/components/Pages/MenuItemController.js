@@ -5,7 +5,6 @@ import Items from './Items'
 
 function MenuItem() {
   const [items, setItems] = useState([])
-  const id = window.location.pathname.split("/").pop();
 
   useEffect(() => {
     axios
@@ -20,7 +19,6 @@ function MenuItem() {
   }, [])
   return (
     <div> 
-      <h1>{id}</h1>     
       {items.map((item) => (
         <Items data={item} key={item.id} />
       ))}
