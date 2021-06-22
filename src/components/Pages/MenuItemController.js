@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Items from './Items'
 
+
 function MenuItem() {
   const [items, setItems] = useState([])
+  const id = window.location.pathname.split("/").pop();
 
   useEffect(() => {
     axios
@@ -17,7 +19,8 @@ function MenuItem() {
       })
   }, [])
   return (
-    <div>
+    <div> 
+      <h1>{id}</h1>     
       {items.map((item) => (
         <Items data={item} key={item.id} />
       ))}

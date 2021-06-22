@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Home from './components/Home'
 import Cart from './components/Cart/Cart'
@@ -13,15 +13,15 @@ function App() {
 
   return (
     <ItemContext.Provider value = {[items, setItems]}>
-      <BrowserRouter>
+      <Router>
          <div className="App">
            <Navbar />
            <Switch>
-             <Route exact path="/" component={Home} />
-            <Route path="/cart" component={Cart} />
+             <Route exact path="/:id" component={Home} />
+            <Route path="/cart/:id" component={Cart} />
          </Switch>
          </div>
-       </BrowserRouter>
+       </Router>
     </ItemContext.Provider>
   )
 }

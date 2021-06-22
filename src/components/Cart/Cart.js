@@ -5,9 +5,10 @@ import Checkout from '../CheckoutBtn/Checkout'
 
 function Cart() {
   const [items, setItems] = useContext(ItemContext)
-
+  const id = window.location.pathname.split("/").pop();
   return (
     <div className="container">
+      <h1>{id}</h1>
           <div className="cart">
             <h5>Order:</h5>
             <ul className="collection">

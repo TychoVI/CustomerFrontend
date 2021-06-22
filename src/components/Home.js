@@ -4,9 +4,8 @@ import MenuItem from './Pages/MenuItemController'
 
 
 class Home extends Component {
-
-
-  render() {
+  
+  render() { 
     return (
       <div className="container">
         <div className="col s12 m2">
