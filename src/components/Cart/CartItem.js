@@ -62,7 +62,7 @@ function CartItem(props) {
   }
 
   const handleRemoveClick = () => {
-    setItems((prevItem) => prevItem.slice(0, -1))
+    setItems((prevItem) => prevItem.splice(1))
   }
 
   return (
