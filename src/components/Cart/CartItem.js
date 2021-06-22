@@ -58,8 +58,13 @@ function CartItem(props) {
   }
 
   const handleAddClick = () => {
-    setItems((prevItem) => [...prevItem, props])
+    setItems((prevItem) => [...prevItem, props.data])
   }
+
+  const handleRemoveClick = () => {
+    setItems((prevItem) => prevItem.slice(0, -1))
+  }
+
   return (
     <Card className={classes.root}>
       <CardHeader title={props.data.data.name} />
@@ -81,8 +86,8 @@ function CartItem(props) {
           <Typography paragraph>Modify your item</Typography>
           <div>
             {React.Children.toArray(
-              props.data.data.ingredients.map((ingredient, index) =>
-                index > 0 ? (
+              props.data.data.ingredients.map((ingredient) =>
+                !ingredient.optional ? (
                   <FormControlLabel
                     disabled
                     control={<Checkbox checked name="checked" />}
@@ -103,11 +108,10 @@ function CartItem(props) {
         </CardContent>
       </Collapse>
       <p>{props.quantity}</p>
-      {console.log(props.quantity)}
       <Icon fontSize="large" color="primary" onClick={handleAddClick}>
         add_circle
       </Icon>
-      <Icon fontSize="large" color="primary">
+      <Icon fontSize="large" color="primary" onClick={handleRemoveClick}>
         remove_circle
       </Icon>
     </Card>

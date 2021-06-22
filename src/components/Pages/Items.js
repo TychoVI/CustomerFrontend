@@ -43,6 +43,8 @@ const useStyles = makeStyles((theme) => ({
 export default function Products(props) {
   const classes = useStyles()
   const [expanded, setExpanded] = React.useState(false)
+
+  // eslint-disable-next-line
   const [items, setItems] = useContext(ItemContext)
 
   const handleExpandClick = () => {

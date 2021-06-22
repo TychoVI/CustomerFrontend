@@ -9,17 +9,17 @@ function Cart() {
 
   //item one id
   const item1 = items.filter(
-    (item) => item.data.id === '3c0d3e6f-040d-4efc-a36d-973277f014e4',
+    (item) => item.data.id === '23bd41b1-7fa9-4b96-bb59-cd64b619ec22',
   )
   const item1Count = item1.length
   //item two id
   const item2 = items.filter(
-    (item) => item.data.id === '3fa85f64-5717-4562-b3fc-2c963f66afa6',
+    (item) => item.data.id === '18b74d74-5ed9-4ebe-b761-940a289a6272',
   )
   const item2Count = item2.length
   //item three id
   const item3 = items.filter(
-    (item) => item.data.id === '5c01818d-846d-4921-be6b-f1cb7e4b7037',
+    (item) => item.data.id === '2a62910a-205e-4a1d-9727-1be686f9127d',
   )
   const item3Count = item3.length
 

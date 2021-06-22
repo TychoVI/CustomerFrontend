@@ -34,7 +34,7 @@ function Checkout() {
       .then((res) => {
         Swal.fire('Success!', 'Your order has been placed!', 'success')
         setTimeout(function () {
-            window.location.replace("https://menu.tycho.dev/");
+          window.location.replace('https://menu.tycho.dev/')
         }, 5000)
       })
       .catch((err) => {
