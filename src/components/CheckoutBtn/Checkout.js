@@ -5,7 +5,7 @@ import Swal from 'sweetalert2'
 
 function Checkout() {
   const [items] = useContext(ItemContext)
-
+  const id = window.location.pathname.split('/').pop()
   function TotalPrice() {
     let totalPrice = 0
     items.map((item) => (totalPrice += item.data.price))
@@ -25,12 +25,15 @@ function Checkout() {
     items.map((item) =>
       order.items.push({
         menuItem: item.data.id,
-        amount: item.amount,
+        amount: 1,
       }),
     )
 
     axios
-      .post(window.globalConfig.API_URL + '/Order/Order', order)
+      .post(window.globalConfig.API_URL + '/Order/Order', {
+        order: order,
+        sessionId: id,
+      })
       .then((res) => {
         Swal.fire('Success!', 'Your order has been placed!', 'success')
         setTimeout(function () {
