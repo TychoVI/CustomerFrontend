@@ -15,7 +15,7 @@ function Checkout() {
 
   function SubmitOrder() {
     var order = {
-      price: TotalPrice,
+      price: TotalPrice(),
       status: 'pending',
       items: [],
     }

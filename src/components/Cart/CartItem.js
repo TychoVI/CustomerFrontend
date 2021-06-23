@@ -62,7 +62,10 @@ function CartItem(props) {
   }
 
   const handleRemoveClick = () => {
-    setItems((prevItem) => prevItem.splice(1))
+    const newItem = items.filter(
+      (item) => items.indexOf(item) !== items.indexOf(props.data),
+    )
+    setItems(newItem)
   }
 
   return (
@@ -95,6 +98,7 @@ function CartItem(props) {
                   />
                 ) : (
                   <FormControlLabel
+                    key={ingredient.id}
                     onChange={handleChange}
                     control={
                       <Checkbox checked={state.checked} name="checked" />
