@@ -25,7 +25,7 @@ function Checkout() {
     items.map((item) =>
       order.items.push({
         menuItem: item.data.id,
-        amount: item.amount,
+        amount: 1,
       }),
     )
 
